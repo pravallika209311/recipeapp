@@ -11,7 +11,7 @@ useEffect(() => {
   .then(response=>{
   console.log(response);
   return response.json();
-  })
+  })  
   .then(res=>{
     console.log(res.hits,res)
    updateIngredientList(res.hits);
