@@ -1,13 +1,43 @@
+.Apps{
+    text-align: center;
+}
+.wrapper{
+    display :flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+.App-header{
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  font-size:calc(10px+2vmin);
+}
+
 .Ingredient{
     width:150px;
     height:200px;
     border-radius: 8px;
     box-shadow:0 1px 4px 0 rgb(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:20px;
+    margin:20px;
+    align-items: center;
+    transition: 0.3s;
+    
+}
+.Ingredient:hover{
+    width:160px;
+    height: 210px;
 }
 .Ingredient img{
     height : 80px;
     width :100px;
     border-radius: 10px;
+    margin:10px;
 }
 .Ingredient p{
     margin :0;     
@@ -15,4 +45,17 @@
 }
 .Ingredient span{
     font-size: 14px;
+}
+.Steps{
+    overflow-y: scroll;
+    position: relative;
+    top:30px;
+    visibility: hidden;
+    transition: 0.3s;
+    opacity: 0;
+}
+.Ingredient:hover .Steps{
+    visibility: initial;
+    top: 0px;
+    opacity: 1 ;
 }
