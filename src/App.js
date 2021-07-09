@@ -11,7 +11,7 @@ const search=()=>{
    inputRef.current.value="";
 };
 const searchForRecipie=(query)=>{
-  let url = `search?q=${query}&app_id=${APP_ID}&app_key=${API_KEY}`;
+  let url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${API_KEY}`;
   fetch(url)
   .then(response=>{
   console.log(response);
