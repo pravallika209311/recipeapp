@@ -8,6 +8,7 @@ const APP_ID = "644a0e1c";
 const search=()=>{
   console.log("input ref" ,inputRef.current.value)
    searchForRecipie(inputRef.current.value);
+   inputRef.current.value="";
 };
 const searchForRecipie=(query)=>{
   let url = `search?q=${query}&app_id=${APP_ID}&app_key=${API_KEY}`;
@@ -24,26 +25,26 @@ const searchForRecipie=(query)=>{
 
 }
 useEffect(() => {
-searchForRecipie('chicken');
+searchForRecipie('icecream');
 },[]);
 
   return ( 
     <div className="App">
       <header className="App-header" >
         <div>
-          <input ref={inputRef} placeholder="Search for recipe"/>
-          <button onClick={search}>Search</button>
+          <input className="InputWrapper" ref={inputRef} placeholder="Search for recipe"/>
+          <button  className="Inputbutton" onClick={search}>Search</button>
           </div>
         <div className="wrapper">
-       {ingredientList.map((item,index)=>{
+       {ingredientList.map(({recipe})=>{
+         const {label,image,ingredientLines}=recipe;
          return (
-           <div className="Ingredient" key={index}>
-            <span>{item.recipe.label}</span>
-
-            <img src={item.recipe.image} alt=".."/>
+           <div className="Ingredient" key={label}>
+            <span>{label}</span>
+            <img src={image} alt=".."/>
             <div className="Steps">
-            {item.recipe.ingredientLines.map((step,i)=>{
-           return  <p key={i}>{step}</p>
+            {ingredientLines.map((step,index)=>{
+           return  <p key={index}>{step}</p>
             })}
             </div>
            </div>
